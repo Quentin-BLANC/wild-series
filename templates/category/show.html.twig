@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+
+    {% for program in programs %}
+        <h2>{{ program.id }} : {{ program.title }}</h2>
+        <p>{{ program.summary }}</p>
+        {# Lien vers la fiche de la série : #}
+        <a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+    {% else %}
+        Aucune série trouvée
+    {% endfor %}
+
+<a href="{{ path('program_index') }}">
+    Retour à la liste des programmes
+</a>
+
+{% endblock %}
